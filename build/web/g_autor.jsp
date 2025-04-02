@@ -18,12 +18,12 @@ List<Autores> lta =(List<Autores>) request.getAttribute("lista_autor");
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     </head>
-    <body>
-        <div class="container-fluid">
-            <h1>Gestionar Autores</h1>
-            <table class="table table-dark table-hover">
+    <body class="bg-dark">
+        <div class="container-lg">
+            <h1 class="text-light mt-4 mb-4">Gestionar Autores</h1>
+            <table class="table table-dark table-hover  w-30">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>Id Autor</th>
                         <th>Nombre</th>
                         <th>Pais</th>
@@ -32,12 +32,15 @@ List<Autores> lta =(List<Autores>) request.getAttribute("lista_autor");
                 </thead>
                 <tbody>
                     <%for(Autores dto : lta){%>   
-                    <tr>
+                    <tr class="text-center">
                         <td><%=dto.getIdAutor()%></td>
                         <td><%=dto.getNombre()%></td>
                         <td><%=dto.getPais()%></td>
-                        <td><a class="btn btn-danger"
-                               href="MiServlet1?menu=Autores&accion=eliminar&id_e=<%=dto.getIdAutor()%>">Eliminar</a></td>
+                        <td>
+                            <a class="btn btn-danger"href="MiServlet1?menu=Autores&accion=eliminar&id_e=<%=dto.getIdAutor()%>">Eliminar</a>
+                             <a class="btn btn-success"href="MiServlet1?menu=Autores&accion=editar&id=<%=dto.getIdAutor()%>">Editar</a>
+                        </td>
+                        
                     </tr>
                     <%}%>
                 </tbody>

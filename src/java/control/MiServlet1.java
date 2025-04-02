@@ -25,10 +25,10 @@ public class MiServlet1 extends HttpServlet {
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -61,20 +61,48 @@ public class MiServlet1 extends HttpServlet {
                         AutoresJpaController jpa = new AutoresJpaController();
                         jpa.create(dto);
                         System.out.println("paso de crear");
-                        request.getRequestDispatcher("MiServlet1?menu=Autores&accion=listar").forward(request, response);
+                        request.getRequestDispatcher("MiServlet1?menu=Autores&accion=listar").forward(request,
+                                response);
                         break;
 
                     }
                     case "editar": {
+                        int id = Integer.parseInt(request.getParameter("id"));
+
+                        AutoresJpaController jpa = new AutoresJpaController();
+                        Autores autor = jpa.findAutores(id);
+
+                        request.setAttribute("autor", autor);
+                        request.getRequestDispatcher("editar_autor.jsp").forward(request, response);
                         break;
 
+                    }
+                    case "Actualizar": {
+                        int id = Integer.parseInt(request.getParameter("id"));
+                        String nombre = request.getParameter("txt_nombre");
+                        String pais = request.getParameter("txt_pais");
+
+                        try {
+                            AutoresJpaController jpa = new AutoresJpaController();
+                            Autores autor = jpa.findAutores(id);
+                            autor.setNombre(nombre);
+                            autor.setPais(pais);
+
+                            jpa.edit(autor);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                        response.sendRedirect("MiServlet1?menu=Autores&accion=listar");
+                        break;
                     }
                     case "eliminar": {
                         try {
                             AutoresJpaController jpa = new AutoresJpaController();
                             int id_e = Integer.parseInt(request.getParameter("id_e"));
                             jpa.destroy(id_e);
-                            request.getRequestDispatcher("MiServlet1?menu=Autores&accion=listar").forward(request, response);
+                            request.getRequestDispatcher("MiServlet1?menu=Autores&accion=listar").forward(request,
+                                    response);
 
                         } catch (NonexistentEntityException ex) {
                             Logger.getLogger(MiServlet1.class.getName()).log(Level.SEVERE, null, ex);
@@ -103,29 +131,31 @@ public class MiServlet1 extends HttpServlet {
 
         }
 
-//        response.setContentType("text/html;charset=UTF-8");
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet MiServlet1</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet MiServlet1 at " + request.getContextPath() + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
-//    }
+        // response.setContentType("text/html;charset=UTF-8");
+        // try (PrintWriter out = response.getWriter()) {
+        // /* TODO output your page here. You may use following sample code. */
+        // out.println("<!DOCTYPE html>");
+        // out.println("<html>");
+        // out.println("<head>");
+        // out.println("<title>Servlet MiServlet1</title>");
+        // out.println("</head>");
+        // out.println("<body>");
+        // out.println("<h1>Servlet MiServlet1 at " + request.getContextPath() +
+        // "</h1>");
+        // out.println("</body>");
+        // out.println("</html>");
+        // }
     }
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the
+    // + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -136,10 +166,10 @@ public class MiServlet1 extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

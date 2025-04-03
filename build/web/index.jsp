@@ -27,10 +27,15 @@
                   </form>
               </li>
               <li class="nav-item ">
-                <button class="btn btn-dark fw-bold" type="submit"> Libros</button>
+                  <form action="MiServlet1" method="post">
+                    <input type="hidden" name="accion" value="listar" />
+                    <input type="hidden" name="menu" value="Editorial" />
+                    <button class="btn btn-dark fw-bold" type="submit"> Editoriales</button>
+                  </form>
+                
               </li>
               <li class="nav-item">
-                <button class="btn btn-dark fw-bold" type="submit"> Editorial</button>
+                <button class="btn btn-dark fw-bold" type="submit"> Libros</button>
               </li>
             </ul>
             

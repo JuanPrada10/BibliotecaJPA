@@ -34,7 +34,9 @@
                 </select>
                 <input type="hidden" name="menu" value="Autores">
                 <input type="submit" name="accion" class="btn btn-primary mb-3 mt-3 " value="Registrar">
+                <a href="MiServlet1?menu=Autores&accion=listar" class="btn btn-danger">Cancelar</a>
             </form>
+            
         </div>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>

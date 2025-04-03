@@ -51,8 +51,8 @@ public class Editoriales implements Serializable {
         this.idEditorial = idEditorial;
     }
 
-    public Editoriales(Integer idEditorial, String nombre) {
-        this.idEditorial = idEditorial;
+    public Editoriales(String nombre, String pais) {
+        this.pais=pais;
         this.nombre = nombre;
     }
 

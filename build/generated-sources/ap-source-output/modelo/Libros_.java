@@ -7,7 +7,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import modelo.Autores;
 import modelo.Editoriales;
 
-@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2025-04-02T12:17:54", comments="EclipseLink-2.7.12.v20230209-rNA")
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2025-04-02T21:16:02", comments="EclipseLink-2.7.12.v20230209-rNA")
 @StaticMetamodel(Libros.class)
 public class Libros_ { 
 

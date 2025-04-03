@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import modelo.Editoriales;
 
 /**
@@ -22,11 +23,12 @@ import modelo.Editoriales;
  * @author Estudiante
  */
 public class EditorialesJpaController implements Serializable {
-
-    public EditorialesJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
-    }
     private EntityManagerFactory emf = null;
+    
+    public EditorialesJpaController() {
+        this.emf = emf = Persistence.createEntityManagerFactory("UnidadBD1");
+    }
+    
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();

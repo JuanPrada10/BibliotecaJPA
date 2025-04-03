@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Juan/Desktop/ArcosJPA/web/g_autor.jsp</file>
+            <file>file:/C:/Users/Juan/Desktop/ArcosJPA/web/editar_autor.jsp</file>
+            <file>file:/C:/Users/Juan/Desktop/ArcosJPA/src/java/control/MiServlet1.java</file>
+            <file>file:/C:/Users/Juan/Desktop/ArcosJPA/src/conf/persistence.xml</file>
+        </group>
     </open-files>
 </project-private>
